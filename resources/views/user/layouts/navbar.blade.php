@@ -7,7 +7,7 @@
             <nav class="limiter-menu-desktop container">
                 <!-- Logo desktop -->
                 <a href="{{route('homepage')}}" class="logo">
-                    <img src="/img/logo.png" alt="IMG-LOGO">
+                    <img src="/img/mylogo.png" alt="IMG-LOGO">
                 </a>
 
                 <!-- Menu desktop -->
@@ -82,7 +82,7 @@
     <div class="wrap-header-mobile">
         <!-- Logo moblie -->
         <div class="logo-mobile">
-            <a href="index.html"><img src="/img/logo.png" alt="IMG-LOGO"></a>
+            <a href="index.html"><img src="/img/Mylogo.png" alt="IMG-LOGO"></a>
         </div>
 
         <!-- Icon header -->

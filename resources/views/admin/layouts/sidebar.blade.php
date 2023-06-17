@@ -3,7 +3,7 @@
         <a href="{{route('homepage')}}" class="brand-link">
             <img src="/template/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
                 style="opacity: .8">
-            <span class="brand-text font-weight-light">CDC-AMAI</span>
+            <span class="brand-text font-weight-light">CDC-Bảo Hoàng</span>
         </a>
 
         <!-- Sidebar -->

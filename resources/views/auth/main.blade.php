@@ -21,8 +21,8 @@
                     <div class="card cascading-right">
                         <div class="card-body p-5 shadow-5">
                             <div class="d-flex align-items-center mb-3 pb-1">
-                                <img src="/img/amai.png" alt="" height="50px;">
-                                <span class="h1 fw-bold mb-0 ml-2">Amaishop</span>
+                                <img src="/img/mylogo.png" alt="" height="50px;">
+                                <span class="h1 fw-bold mb-0 ml-2">Bảo Hoàng Hhop</span>
                             </div>
                             @yield('content')
                             @if ($message = Session::get('message'))

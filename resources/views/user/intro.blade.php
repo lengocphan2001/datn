@@ -8,7 +8,7 @@
                     <div class="col-md-7 col-lg-8">  
                         <div class="p-t-7 p-r-85 p-r-15-lg p-r-0-md">
                             <h3 class=" cl2 p-b-16">
-                                Câu chuyện của Amai Shop
+                                Câu chuyện của Bảo Hoàng Shop
                             </h3>
     
                             <p class="stext-113 cl6 p-b-26">
@@ -38,7 +38,7 @@
                     <div class="order-md-2 col-md-7 col-lg-8 p-b-30">
                         <div class="p-t-7 p-l-85 p-l-15-lg p-l-0-md">
                             <h3 class="cl2 p-b-16">
-                                Sứ mệnh của Amai Shop
+                                Sứ mệnh của Bảo Hoàng Shop
                             </h3>
     
                             <p class="stext-113 cl6 p-b-26">
@@ -51,7 +51,7 @@
                                 </p>
     
                                 <span class="stext-111 cl8">
-                                    - CDC_AMAI
+                                    - CDC_Bảo Hoàng
                                 </span>
                             </div>
                         </div>

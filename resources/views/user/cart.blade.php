@@ -73,7 +73,7 @@
                         </div>
 
                         <div class="flex-w flex-sb-m bor15 p-t-18 p-b-15 p-lr-40 p-lr-15-sm">
-                            <div class="col-12 d-flex">
+                            <div class="col-10 d-flex">
                                 <div class="flex-w flex-m m-r-20 m-tb-5 col-4">
                                     <input class=" cl2 plh4 size-117 bor13 p-lr-20 m-r-10 m-tb-5" type="text"
                                         id="coupon" name="coupon" placeholder="Nhập mã giảm giá">

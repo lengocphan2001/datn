@@ -24,9 +24,10 @@ class CartService extends BaseService
     @return: neu san pham chua co trong gio->them san pham vao gio hang
     */
     public function check($data){
-        $data['user_id'] = Auth::user()->id;
-        $user_id = Auth::user()->id;
-                $dem = Cart::where('user_id', $user_id)
+        if (Auth::check()){
+            $data['user_id'] = Auth::user()->id;
+            $user_id = Auth::user()->id;
+            $dem = Cart::where('user_id', $user_id)
                 ->where('detail_product_id', $data['detail_product_id'])
                 ->count();
             if($dem != 0){
@@ -36,6 +37,9 @@ class CartService extends BaseService
             }else{
                 Cart::insert($data);
             }
+        }else{
+            return redirect(route('login'));
+        }
     }
     /*
     * Hien thi danh sach gio hang

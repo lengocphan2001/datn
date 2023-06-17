@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Requests\CartRequest;
 use App\Services\CartService;
+use Illuminate\Support\Facades\Auth;
 class CartController extends Controller
 {
     protected $data =[];
@@ -20,10 +21,11 @@ class CartController extends Controller
     */
     public function store(CartRequest $request){
         $data = $request->except('_token','size_id');
+        if (!Auth::check()){
+            return redirect(route('login'));
+        }
         $this->data = $this->cartService->check($data);
-        return redirect()
-        ->back()
-        ->with('success', 'Đã thêm vào giỏ hàng thành công');
+        return redirect()->back()->with('success', 'Đã thêm vào giỏ hàng thành công');
     }
     /*
     * Hien thi trang gio hang

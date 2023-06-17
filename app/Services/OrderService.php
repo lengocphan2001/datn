@@ -31,7 +31,7 @@ class OrderService extends BaseService
         foreach ($items as $item) {
             $total += $item->quantity * $item->details->product->price;
         }
-        if ($order->voucher_id = !null) {
+        if (isset($order->voucher_id)) {
             $total = $total - ($total * ($order->voucher->discount / 100));
         }
         $this->data['total'] = $total;

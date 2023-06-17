@@ -10,6 +10,7 @@ use App\Services\OrderService;
 use App\Services\SliderService;
 use App\Services\UserService;
 use App\Services\VoucherService;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -46,6 +47,9 @@ class UserController extends Controller
     //quan ly thong tin ca nhan
 
     public function account(){
+        if (!Auth::check()){
+            return redirect(route('login'));
+        }
         $user = $this->userService->getInfoUser();
         return view('user.persons.account',[
             'title' => 'Thông tin tài khoản',
@@ -55,23 +59,35 @@ class UserController extends Controller
 
     public function updateAddress(UserRequest $request)
     {
+        if (!Auth::check()){
+            return redirect(route('login'));
+        }
         $this->userService->updateAddress($request);
         return redirect()->route('account')->with('msg','cập nhập địa chỉ thành công');
     }
 
     public function updateUser(UserRequest $request)
     {
+        if (!Auth::check()){
+            return redirect(route('login'));
+        }
         $this->userService->updateUser($request);
         return redirect()->route('account')->with('msg','cập nhập thông tin thành công');
     }
 
     public function wallet(){
+        if (!Auth::check()){
+            return redirect(route('login'));
+        }
         return view('user.persons.wallet',[
             'title' => 'Ví voucher',
             'vouchers' => $this->voucherService->getOwnVoucher()
         ]);
     }
     public function order(){
+        if (!Auth::check()){
+            return redirect(route('login'));
+        }
         $orders = $this->orderService->getAllOrder();
         return view('user.persons.order',[
             'title' => 'Quản lý đơn hàng',

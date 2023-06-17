@@ -27,7 +27,7 @@
                     style="height: 100px; padding: 10px 20px; line-height: 90px; background-color: white; box-sizing: border-box;">
                     <h1 class="pl-2"
                         style="color: orange; line-height: 30px; float: left; padding-left: 20px; font-size: 40px; font-weight: 500;">
-                        AmaiShop
+                        Bảo Hoàng Shop
                     </h1>
                 </div>
 

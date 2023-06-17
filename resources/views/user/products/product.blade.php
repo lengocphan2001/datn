@@ -8,7 +8,7 @@
                         <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
                             <div class="carousel-inner">
                                 @foreach ($product->thumbs as $key=>$thumb)
-                                <div class="carousel-item {{($key == 0) ? "active" : "";}}" >
+                                <div class="carousel-item {{($key == 0) ? "active" : ""}}" >
                                     <div class="slick3 gallery-lb">
                                         <div class="item-slick3" data-thumb="src={{ asset( $thumb->url) }}">
                                             <div class="wrap-pic-w pos-relative">
