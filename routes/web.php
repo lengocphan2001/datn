@@ -12,6 +12,7 @@ use App\Http\Controllers\Admin\VoucherController;
 use App\Http\Controllers\Admin\Product\DetailProductController;
 use App\Http\Controllers\Admin\Product\ProductController as ProductAdminController;
 use App\Http\Controllers\Admin\Product\ThumbController;
+use App\Http\Controllers\Admin\StatisController;
 use App\Http\Controllers\User\ProductController;
 use App\Http\Controllers\User\CartController;
 use App\Http\Controllers\User\UserController as UserMainController;
@@ -69,6 +70,7 @@ Route::prefix('admin')->name('admin.')->middleware(['auth', 'verify_email'])->gr
     Route::resource('categories', CategoryAdminController::class);
     #Banner
     Route::resource('sliders', SliderController::class);
+    Route::resource('statis', StatisController::class);
     Route::post('/sliders/changeStatus', [SliderController::class, 'changeStatus'])->name('sliders.change_status');
     #Nhan hang cung cap
     Route::resource('brands', BrandController::class);

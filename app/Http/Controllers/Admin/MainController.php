@@ -33,4 +33,8 @@ class MainController extends Controller
             'users' => $this->userService->getCountUsers(),
         ]);
     }
+
+    public function statis(Request $request){
+        
+    }
 }
