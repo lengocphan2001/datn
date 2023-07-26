@@ -5,6 +5,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\Admin\CategoryController as CategoryAdminController;
 use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\Admin\BrandController;
+use App\Http\Controllers\Admin\HighchartController;
 use App\Http\Controllers\Admin\UserController as UserAdminController;
 use App\Http\Controllers\Admin\MainController as MainAdminController;
 use App\Http\Controllers\Admin\OrderController;
@@ -65,6 +66,12 @@ Route::prefix('admin')->name('admin.')->middleware(['auth', 'verify_email'])->gr
     #Người dùng
     Route::get('/users', [UserAdminController::class, 'index'])->name('users.index');
     Route::post('/users/changeStatus', [UserAdminController::class, 'changeStatus'])->name('users.change_status');
+
+
+    #Thống kê
+    Route::get('/statis/income', [HighchartController::class, 'income'])->name('statis.income');
+    Route::get('/statis/stock', [HighchartController::class, 'stock'])->name('statis.stock');
+    Route::get('/statis/bestsell/{month}', [HighchartController::class, 'bestSell'])->name('statis.bestsell');
 
     #Danh muc
     Route::resource('categories', CategoryAdminController::class);

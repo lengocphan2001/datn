@@ -150,6 +150,35 @@
                         <a href="#" class="nav-link active">
                             <i class="fas fa-gear"></i>
                             <p>
+                                Thống kê
+                                <i class="right fas fa-angle-left"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="{{route('admin.statis.income')}}" class="nav-link">
+                                    <i class="fa-solid fa-key"></i>
+                                    <p>Thống kê tiền vốn</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{route('admin.statis.stock')}}" class="nav-link">
+                                    <i class="fas fa-power-off"></i>
+                                    <p>Thống kê tồn kho</p>
+                                </a>
+                            </li>
+                            {{-- <li class="nav-item">
+                                <a href="{{route('admin.statis.bestsell')}}" class="nav-link">
+                                    <i class="fas fa-power-off"></i>
+                                    <p>Thống kê hàng bán chạy</p>
+                                </a>
+                            </li> --}}
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link active">
+                            <i class="fas fa-gear"></i>
+                            <p>
                                 Cá nhân
                                 <i class="right fas fa-angle-left"></i>
                             </p>

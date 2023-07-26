@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->date('date');
             $table->unsignedBigInteger('total');
-            $table->enum('type', [0, 1]);
+            $table->integer('type');
             $table->timestamps();
         });
     }

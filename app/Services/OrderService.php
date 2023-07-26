@@ -6,6 +6,7 @@ use App\Jobs\SendOrderInvoice;
 use App\Models\Cart;
 use App\Models\DetailOrder;
 use App\Models\Order;
+use App\Models\Statistical;
 use App\Models\Voucher;
 use App\Services\BaseService;
 use Illuminate\Support\Facades\Auth;
@@ -118,6 +119,12 @@ class OrderService extends BaseService
                     'detail_product_id' => $cart->detail_product_id,
                     'quantity' => $cart->quantity,
                     'price' => $cart->details->product->price
+                ]);
+
+                Statistical::create([
+                    'date' => now(),
+                    'type' => 1,
+                    'total' => $cart->quantity * $cart->price
                 ]);
 
                 $orderDetail->save();

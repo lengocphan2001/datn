@@ -8,6 +8,7 @@ use App\Models\Color;
 use App\Models\DetailProduct;
 use App\Models\Product;
 use App\Models\Size;
+use App\Models\Statistical;
 use App\Models\Thumb;
 use App\Services\BaseService;
 use Illuminate\Support\Facades\Auth;
@@ -78,18 +79,24 @@ class ProductService extends BaseService
 
     public function getDetail($product_id)
     {
-        return DetailProduct::where('product_id',$product_id)->get();
+        return DetailProduct::where('product_id', $product_id)->get();
     }
 
     public function createDetail($data)
     {
+        $product = Product::where('id', $data['product_id'])->first();
+        Statistical::create([
+            'date' => now(),
+            'type' => 0,
+            'total' => $product->income_price * $data['quantity']
+        ]);
         $DetailProduct = new DetailProduct();
         $DetailProduct->create($data)->save();
     }
 
     public function updateDetail($data, $detail_id)
     {
-        return DetailProduct::where('id',$detail_id)->update($data);
+        return DetailProduct::where('id', $detail_id)->update($data);
     }
 
     public function getBrands()
