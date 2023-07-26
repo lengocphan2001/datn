@@ -16,6 +16,7 @@
                             <tr>
                                 <th>STT</th>
                                 <th>Tên nhãn hàng</th>
+                                <th>Ghi chú</th>
                                 <th>Trạng thái</th>
                                 <th>Ngày tạo</th>
                                 <th>Cập nhật lúc</th>
@@ -39,6 +40,9 @@
                                         {{ $brand['name'] }}
                                     </td>
                                     <td>
+                                        {{ $brand['note'] }}
+                                    </td>
+                                    <td>
                                         <div class="form-check form-switch">
                                             <input class="form-check-input" type="checkbox" role="switch" @checked($brand['status'])
                                             data-id="{{ $brand['id'] }}">
@@ -51,6 +55,9 @@
                                         {{ $brand['updated_at'] }}
                                     </td>
                                     <td class="text-right">
+                                        <a href="{{ route('admin.brands.edit', $brand->id) }}" type="button" class="btn btn-info">
+                                            <i class="fa-regular fa-pen-to-square"></i>
+                                        </a>
                                         <form class="d-inline" action="{{ route('admin.brands.destroy', $brand['id']) }}"
                                             method="post">
                                             @csrf

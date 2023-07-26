@@ -13,6 +13,7 @@ class Brand extends Model
     protected $fillable =[
         'name',
         'status',
+        'note',
         'admin_created',
         'admin_updated',
     ];

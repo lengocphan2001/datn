@@ -44,6 +44,18 @@
                             </div>
 
                             <div class="position-relative row form-group">
+                                <label for="price" class="col-md-3 text-md-right col-form-label">Giá nhập</label>
+                                <div class="col-md-9 col-xl-8">
+                                    <input required name="income_price" id="price" placeholder="Giá" type="number"
+                                        class="form-control" value="{{ $product->price }}">
+                                    @error('price')
+                                        <span style="color: red">{{ $message }}</span>
+                                    @enderror
+                                </div>
+
+                            </div>
+
+                            <div class="position-relative row form-group">
                                 <label for="brand_id" class="col-md-3 text-md-right col-form-label">Thương Hiệu</label>
                                 <div class="col-md-9 col-xl-8">
                                     <select required name="brand_id" id="brand_id" class="form-control">

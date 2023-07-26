@@ -29,6 +29,14 @@
                     </div>
 
                     <div class="mb-3">
+                        <label for="name" class="form-label">Ghi chú</label>
+                        @error('note')
+                            <span style="color:red">{{ $message }}</span>
+                        @enderror
+                        <input type="text" name="note" class="form-control" id="name" value="{{old('note')}}">
+                    </div>
+
+                    <div class="mb-3">
                         <label for="">Trạng thái</label>
                         <div class="form-check">
                             <input class="form-check-input" type="radio" name="status" id="flexRadioDefault2"

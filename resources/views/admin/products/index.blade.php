@@ -16,6 +16,7 @@
                                     <th class="text-center">Tên</th>
                                     <th class="text-center">Thương Hiệu</th>
                                     <th class="text-center">Giá</th>
+                                    <th class="text-center">Giá nhập</th>
                                     <th class="text-center">Hành Động</th>
                                 </tr>
                             </thead>
@@ -26,6 +27,7 @@
                                         <td class="text-center">{{ $product->name }}</td>
                                         <td class="text-center">{{ $product->brand->name }}</td>
                                         <td class="text-center">{{ number_format($product->price) }} VND</td>
+                                        <td class="text-center">{{ number_format($product->income_price) }} VND</td>
                                         <td class="text-center">
                                             <a href="{{ route('admin.product.products.show', $product) }}"
                                                 class="btn btn-hover-shine btn-outline-primary border-0 btn-sm">

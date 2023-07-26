@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->integer('price');
+            $table->integer('income_price')->default(0);
             $table->string('description');
             $table->enum('status',['0','1'])->default(1);
             $table->unsignedBigInteger('category_id');
@@ -27,7 +28,6 @@ return new class extends Migration
             $table->timestamps();
             $table->foreign('category_id')->references('id')->on('categories');
             $table->foreign('brand_id')->references('id')->on('brands');
-            
         });
     }
 

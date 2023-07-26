@@ -46,22 +46,24 @@ class ProductController extends Controller
 
         return response()->json(['html' => '']);
     }
-        //Thong tin san pham
-        public function product(Product $product){
+    //Thong tin san pham
+    public function product(Product $product)
+    {
 
-            return view('user.products.product',[
-                'title' => 'Thông tin sản phẩm',
-                'product' => $product,
-                'sizes' => $this->detailProduct->getSizeProduct($product->id),
-            ]);
-        }
-        //Lay may theo size san pham
-        public function getColor(Request $request){
-            $colors = $this->detailProduct->getSizeColor($request);
-            return view('user.products.color',[
-                'colors' => $colors
-            ]);
-        }
+        return view('user.products.product', [
+            'title' => 'Thông tin sản phẩm',
+            'product' => $product,
+            'sizes' => $this->detailProduct->getSizeProduct($product->id),
+        ]);
+    }
+    //Lay may theo size san pham
+    public function getColor(Request $request)
+    {
+        $colors = $this->detailProduct->getSizeColor($request);
+        return view('user.products.color', [
+            'colors' => $colors
+        ]);
+    }
 
     public function search_products(Request $request)
     {

@@ -46,6 +46,25 @@ class BrandController extends Controller
         $this->brandService->create($this->data);
         return redirect()->route('admin.brands.create')->with('msg','Thêm nhãn hàng thành công');
     }
+
+    public function edit(Brand $brand)
+    {
+        return view('admin.brands.edit', [
+            'title' => 'Cập nhật nhãn hàng',
+            'brand' => $brand
+        ]);
+    }
+
+    /*
+    * Xu ly cap nhat ma giam gia
+    */
+    public function update(Request $request, Brand $brand)
+    {
+        $data = $request->except('_token', '_method');
+        $this->data = $this->brandService->getData($data);
+        $this->brandService->update($this->data, $brand->id);
+        return redirect()->route('admin.brands.edit', $brand->id)->with('msg', 'Sửa nhãn hàng thành công');
+    }
     /*
     * thay doi trang thai nhan hang
     */
