@@ -3,8 +3,10 @@
 namespace App\Services;
 
 use App\Jobs\SendOrderInvoice;
+use App\Models\BestSell;
 use App\Models\Cart;
 use App\Models\DetailOrder;
+use App\Models\DetailProduct;
 use App\Models\Order;
 use App\Models\Statistical;
 use App\Models\Voucher;
@@ -124,7 +126,15 @@ class OrderService extends BaseService
                 Statistical::create([
                     'date' => now(),
                     'type' => 1,
-                    'total' => $cart->quantity * $cart->price
+                    'total' => $cart->quantity * $cart->details->product->price
+                ]);
+
+                $product = DetailProduct::where('id', $cart->detail_product_id)->first()->product;
+
+
+                BestSell::create([
+                    'product_id' => $product->id,
+                    'quantity' => $cart->quantity
                 ]);
 
                 $orderDetail->save();

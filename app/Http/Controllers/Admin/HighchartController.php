@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\BestSell;
 use App\Models\Statistical;
 use Illuminate\Foundation\Auth\User;
 use Illuminate\Http\Request;
@@ -25,13 +26,13 @@ class HighchartController extends Controller
 
     public function stock()
     {
-        $userData = User::select(DB::raw("COUNT(*) as count"))
+        $userData = BestSell::select(DB::raw("max(CAST(sum(quantity) as int)) as count"), 'product_id')
                     ->whereYear('created_at', date('Y'))
-                    
-                    ->groupBy(DB::raw("Month(created_at)"))
-                    ->pluck('count');
-          
-        return view('admin.statis.income', [
+                    ->groupBy('product_id');
+                    // ->get();
+
+                    dd($userData);
+        return view('admin.statis.stock', [
             'title' => 'Thống kê hàng tồn kho',
             'userData' => $userData
         ]);
