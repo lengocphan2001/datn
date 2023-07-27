@@ -1,7 +1,7 @@
 @extends('user.main')
 @section('content')
     <!-- Slider -->
-    <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
+    <div id="carouselExampleFade" class="carousel slide carousel-fade mb-8" data-bs-ride="carousel">
         <div class="carousel-inner">
             @foreach ($sliders as $key => $slider)
                 <div class="carousel-item {{ $key == 0 ? 'active' : '' }}">
@@ -25,7 +25,7 @@
         </button>
     </div>
     <!-- Product -->
-    <section class="bg0 p-t-40 p-b-140">
+    <section class="bg0 p-t-40 p-b-140" style="margin-top: 100px">
         <div class="container">
             <div class="p-b-10">
                 <h1 class="fw-bolder cl5">

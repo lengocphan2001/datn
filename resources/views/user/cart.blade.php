@@ -228,8 +228,60 @@
         }
 
         //cap nhat so luong trong gio hang 
-
         $(document).ready(function() {
+            $('.btn-num-product-up').on('click', function() {
+                var quantity = $('.num-product').val();
+                var detail_product_id = $('.num-product').data('id');
+                var price = $('.num-product').data('price');
+                $.ajax({
+                    url: "{{ route('cart.update') }}",
+                    type: 'PUT',
+                    data: {
+                        _method: 'PUT',
+                        _token: "{{ csrf_token() }}",
+                        quantity: quantity,
+                        detail_product_id: detail_product_id
+                    },
+                    success: function($response) {
+
+                        $(`#cart_price${detail_product_id}`).html(Intl.NumberFormat('en-VN')
+                            .format(quantity * price) + ' VND');
+
+                        $(`#provi${detail_product_id}`).val(quantity * price);
+                        console.log($response['total']);
+                        $('#total').html(Intl.NumberFormat('en-VN')
+                            .format($response['total']) + ' VND');
+                    },
+                    error: function($response) {}
+                });
+            });
+
+            $('.btn-num-product-down').on('click', function() {
+                var quantity = $('.num-product').val();
+                var detail_product_id = $('.num-product').data('id');
+                var price = $('.num-product').data('price');
+                $.ajax({
+                    url: "{{ route('cart.update') }}",
+                    type: 'PUT',
+                    data: {
+                        _method: 'PUT',
+                        _token: "{{ csrf_token() }}",
+                        quantity: quantity,
+                        detail_product_id: detail_product_id
+                    },
+                    success: function($response) {
+
+                        $(`#cart_price${detail_product_id}`).html(Intl.NumberFormat('en-VN')
+                            .format(quantity * price) + ' VND');
+
+                        $(`#provi${detail_product_id}`).val(quantity * price);
+                        console.log($response['total']);
+                        $('#total').html(Intl.NumberFormat('en-VN')
+                            .format($response['total']) + ' VND');
+                    },
+                    error: function($response) {}
+                });
+            });
             $(document).on('change', '.num-product', function() {
                 var quantity = $(this).val();
                 var detail_product_id = $(this).data('id');
@@ -249,7 +301,7 @@
                             .format(quantity * price) + ' VND');
 
                         $(`#provi${detail_product_id}`).val(quantity * price);
-                        // console.log($response['total']);
+                        console.log($response['total']);
                         $('#total').html(Intl.NumberFormat('en-VN')
                             .format($response['total']) + ' VND');
                     },
@@ -257,6 +309,8 @@
                 });
             });
         });
+
+        
 
         //Nhap ma voucher
         function useCoupon() {
