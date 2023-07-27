@@ -10,7 +10,7 @@
         <div class="row">
             <div class="card">
                 <div class="card-body">
-                    <h2>Thống kê tiền vốn</h2>
+                    <h2>Thống kê hàng tồn kho</h2>
                     <div id="container"></div>
                 </div>
             </div>
@@ -31,7 +31,7 @@
             },
             yAxis: {
                 title: {
-                    text: 'Tổng số vốn'
+                    text: 'Hàng tồn kho'
                 }
             },
             legend: {
@@ -45,7 +45,7 @@
                 }
             },
             series: [{
-                name: 'Tiền vốn',
+                name: 'Số lượng tồn',
                 data: userData
             }],
             responsive: {

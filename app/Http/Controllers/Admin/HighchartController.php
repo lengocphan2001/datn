@@ -26,12 +26,12 @@ class HighchartController extends Controller
 
     public function stock()
     {
-        $userData = BestSell::select(DB::raw("max(CAST(sum(quantity) as int)) as count"), 'product_id')
+        $userData = BestSell::select(DB::raw("CAST(sum(quantity) as int) as count"), 'product_id')
                     ->whereYear('created_at', date('Y'))
-                    ->groupBy('product_id');
+                    ->groupBy('product_id')
+                    ->pluck('count');
                     // ->get();
 
-                    dd($userData);
         return view('admin.statis.stock', [
             'title' => 'Thống kê hàng tồn kho',
             'userData' => $userData
